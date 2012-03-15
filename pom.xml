@@ -84,6 +84,11 @@
                     </goals>
                 </configuration>
             </plugin>
+            <plugin>
+            	<groupId>org.jbehave</groupId>
+            	<artifactId>jbehave-maven-plugin</artifactId>
+            	<version>3.6-beta-3</version>
+            </plugin>
         </plugins>
     </build>
 <dependencies>
