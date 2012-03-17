@@ -31,7 +31,7 @@ public class CalculatorTest extends JUnitStory {
                 .useStoryLoader(new LoadFromClasspath(this.getClass()))
                 // CONSOLE and TXT reporting
                 .useStoryReporterBuilder(
-                        new StoryReporterBuilder().withDefaultFormats().withFormats(Format.HTML, Format.IDE_CONSOLE));
+                        new StoryReporterBuilder().withDefaultFormats().withFormats(Format.CONSOLE, Format.TXT));
     }
 
     // Here we specify the steps classes
