@@ -20,7 +20,7 @@ import org.jbehave.core.steps.InstanceStepsFactory;
  * 
  *
  */
-public class CalculatorTest extends JUnitStory {
+public class TraderTest extends JUnitStory {
 
     // Here we specify the configuration, starting from default MostUsefulConfiguration, and changing only what is
     // needed
@@ -38,6 +38,6 @@ public class CalculatorTest extends JUnitStory {
     @Override
     public List<CandidateSteps> candidateSteps() {
         // varargs, can have more that one steps classes
-        return new InstanceStepsFactory(configuration(), new CalculatorSteps()).createCandidateSteps();
+        return new InstanceStepsFactory(configuration(), new TraderSteps()).createCandidateSteps();
     }
 }
