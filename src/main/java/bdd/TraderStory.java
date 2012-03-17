@@ -31,7 +31,7 @@ public class TraderStory extends JUnitStory {
                 .useStoryLoader(new LoadFromClasspath(this.getClass()))
                 // CONSOLE and TXT reporting
                 .useStoryReporterBuilder(
-                        new StoryReporterBuilder().withDefaultFormats().withFormats(Format.TXT));
+                        new StoryReporterBuilder().withDefaultFormats().withFormats(Format.HTML));
     }
 
     // Here we specify the steps classes

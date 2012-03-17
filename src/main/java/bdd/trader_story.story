@@ -6,7 +6,6 @@ When the stock is traded at <price>
 Then the alert status should be <status>
 
 Examples:
-|symbol|threshold|price|status
 |STK|10|5|OFF|
 |ATK|10|9|OFF|
 |STK|10|1|OFF|
