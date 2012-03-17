@@ -84,13 +84,16 @@
                     </goals>
                 </configuration>
             </plugin>
+            
             <plugin>
             	<groupId>org.jbehave</groupId>
             	<artifactId>jbehave-maven-plugin</artifactId>
             	<version>3.6-beta-3</version>
             </plugin>
+    
         </plugins>
     </build>
+    
 <dependencies>
 	<dependency>
 		<groupId>junit</groupId>
@@ -104,7 +107,13 @@
 		<artifactId>hamcrest-all</artifactId>
 		<version>1.2</version>
 		<type>pom</type>
-		<classifier>sources</classifier>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.jbehave</groupId>
+		<artifactId>jbehave-core</artifactId>
+		<version>3.5.4</version>
+		<type>jar</type>
 		<scope>compile</scope>
 	</dependency>
 </dependencies>
