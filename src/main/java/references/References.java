@@ -1,4 +1,4 @@
-package memory;
+package references;
 
 import java.util.*;
 import java.lang.ref.*;
