@@ -24,7 +24,7 @@
 
 	<build>
 		<plugins>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -34,33 +34,33 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-			
-			         <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
-                <executions>
-                    <execution>
-                        <id>attach-source</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
-            <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.2.2</version>
-                <!-- don't upload the plugin to java.net and make an announcement as well -->
-                <configuration>
-                    <goals>
-                        deploy site<!-- deploy hpi:upload hpi:announce -->
-                    </goals>
-                </configuration>
-            </plugin>
-            
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<id>attach-source</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.2.2</version>
+				<!-- don't upload the plugin to java.net and make an announcement as well -->
+				<configuration>
+					<goals>
+						deploy site<!-- deploy hpi:upload hpi:announce -->
+					</goals>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.bsc.maven</groupId>
 				<artifactId>maven-processor-plugin</artifactId>
@@ -72,8 +72,8 @@
 						</goals>
 						<phase>generate-sources</phase>
 						<configuration>
-						      <outputDirectory>src/main/generated</outputDirectory>
-						
+							<outputDirectory>src/main/generated</outputDirectory>
+
 							<processors>
 								<processor>annotations.AgisoftAnnotationsProcessor</processor>
 							</processors>
@@ -127,6 +127,14 @@
 			<groupId>org.jbehave</groupId>
 			<artifactId>jbehave-core</artifactId>
 			<version>3.5.4</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>2.3</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
