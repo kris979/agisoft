@@ -16,6 +16,8 @@ import org.junit.Test;
  */
 public class RobotTest {
     
+    private String input = "10\nmove 4 over 3\nmove 2 onto 4\nquit";
+    
 
     /**
      * @throws java.lang.Exception
@@ -33,9 +35,7 @@ public class RobotTest {
 
     @Test
     public void robotShouldExecuteAllCommands() {
-        Robot r = new Robot();
-        Command testCommand = new MoveOverCommand(0, 0);
-        r.addCommand(testCommand);
+        Robot r = new Robot(input);
         r.executeCommands();
     }
 }

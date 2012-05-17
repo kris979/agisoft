@@ -31,8 +31,15 @@ public class CommandParser {
 
     private void parse() {
         String[] lines = input.split("\n");
-        System.out.println(Arrays.toString(lines));
         setNumberOfBlocks(lines);
+        createCommands(lines);
+    }
+
+    /**
+     * @param lines
+     * @throws NumberFormatException
+     */
+    private void createCommands(String[] lines) throws NumberFormatException {
         for (int i = 1; i < lines.length - 1; i++) {
             String[] commandString = lines[i].split(" ");
             Command c = createCommand(commandString);

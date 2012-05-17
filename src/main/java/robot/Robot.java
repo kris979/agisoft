@@ -5,8 +5,6 @@
   */
 package robot;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -15,14 +13,17 @@ import java.util.List;
  */
 public class Robot {
     
-    private List<Command> commands = new ArrayList<Command>();
+    private List<Command> commands;
+    private CommandParser parser;
 
     /**
-     * @param command
+     * @param input
      */
-    public void addCommand(Command command) {
-        commands.add(command);
+    public Robot(String input) {
+        parser = new CommandParser(input);
+        commands = parser.getCommands();
     }
+
 
     /**
      * 
