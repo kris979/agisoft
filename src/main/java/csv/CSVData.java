@@ -5,6 +5,7 @@
   */
 package csv;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class CSVData {
      * @return
      */
     public List<String> getHeadlines() {
-        List<String> asList = Arrays.asList(entries.get(0));
+        List<String> asList = new ArrayList<String>(Arrays.asList(entries.get(0)));
         int lastElemIndex = asList.size() - 1;
         asList.remove(lastElemIndex);
         return asList;

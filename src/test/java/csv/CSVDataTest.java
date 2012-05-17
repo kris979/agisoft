@@ -13,7 +13,10 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
+
 /**
  * 
  *
@@ -44,6 +47,7 @@ public class CSVDataTest {
         String[] exp = {"Transaction Date", "Transaction Type", "Sort Code", "Account Number", "Transaction Description", "Debit Amount", "Credit Amount", "Balance"};
         List<String> expected = Arrays.asList(exp);
         List<String> headlines = entries.getHeadlines();
-        assertEquals(expected,headlines);
+//        assertEquals(expected,headlines);
+        assertThat(headlines, is(expected));
     }
 }
