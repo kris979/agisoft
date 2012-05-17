@@ -1,6 +1,5 @@
 package patterns.strategy;
 
-import java.util.logging.Logger;
 
 /**
  * 
@@ -9,15 +8,10 @@ import java.util.logging.Logger;
 public class Walk implements MoveStrategy {
     
     /**
-     * @param logger
      */
-    public Walk(Logger logger) {
+    public Walk() {
         super();
-        this.logger = logger;
     }
-
-
-    private final Logger logger;
 
 
     /* (non-Javadoc)
@@ -25,7 +19,7 @@ public class Walk implements MoveStrategy {
      */
     @Override
     public void move() {
-        logger.info("Walking...");
+        System.out.println("Walking...");
     }
 
 }
