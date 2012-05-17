@@ -1,6 +1,5 @@
 package patterns.strategy;
 
-import java.util.logging.Logger;
 
 
 /**
