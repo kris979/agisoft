@@ -20,10 +20,9 @@ public class CommandFactory {
     public static Command getInstance(String commandType, int sourceBlock, int destinationBlock) {
         if (commandType.equals("over")) {
             return new MoveOverCommand(sourceBlock, destinationBlock);
-        } else if (commandType.equals("onto")) {
+        } else {
             return new MoveOntoCommand(sourceBlock, destinationBlock);
         }
-        return null;
     }
     
     

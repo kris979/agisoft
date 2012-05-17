@@ -5,6 +5,7 @@
  */
 package robot;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class CommandParser {
     public CommandParser(String input) {
         super();
         this.input = input;
+        commands = new ArrayList<Command>();
         parse();
     }
 
@@ -36,7 +38,6 @@ public class CommandParser {
             Command c = createCommand(commandString);
             commands.add(c);
         }
-
     }
 
     /**
@@ -44,12 +45,10 @@ public class CommandParser {
      * @return
      * @throws NumberFormatException
      */
-    private Command createCommand(String[] command) throws NumberFormatException {
+    public Command createCommand(String[] command) throws NumberFormatException {
         int sourceBlock = Integer.parseInt(command[1]);
         int destinationBlock = Integer.parseInt(command[3]);
         String commandType = command[2];
-        
-        System.out.println(commandType);
         Command c = CommandFactory.getInstance(commandType, sourceBlock, destinationBlock);
         return c;
     }

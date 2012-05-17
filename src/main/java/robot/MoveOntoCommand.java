@@ -9,13 +9,14 @@ package robot;
  * 
  *
  */
-public class MoveOntoCommand implements Command {
+public class MoveOntoCommand extends AbstractCommand {
 
     /**
      * @param sourceBlock
      * @param destinationBlock
      */
     public MoveOntoCommand(int sourceBlock, int destinationBlock) {
+        super(sourceBlock, destinationBlock);
     }
     
     /* (non-Javadoc)
@@ -23,8 +24,7 @@ public class MoveOntoCommand implements Command {
      */
     @Override
     public void execute() {
-        // TODO Auto-generated method stub
-
+        System.out.println("Moving " + sourceBlock +  " onto " + destinationBlock + "\n");
     }
 
 }
