@@ -43,3 +43,27 @@ public class BinaryChopTest {
     }
 
 }
+
+
+
+//def where_is_it(val, left, right, container):
+//    l = right - left
+//    if(l == 0):
+//    if(container[left] == val):
+//    return left
+//    else:
+//    return -1
+//
+//    if(container[left + l/2] >= val):
+//    return where_is_it(val, left, left + l/2, container)
+//    else:
+//    return where_is_it(val, left + l/2+1 , right , container)
+//
+//
+//    if __name__ == "__main__":
+//
+//    ints = [1,2,3,4,5]
+//
+//    global count    
+//    for i in range(1,10):
+//    print "%d is at? %d\n\n" % (i, where_is_it(i, 0, len(ints)-1, ints))
