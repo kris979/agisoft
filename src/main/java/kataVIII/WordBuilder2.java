@@ -50,7 +50,7 @@ public class WordBuilder2 {
         String line = null;
         while ((line = reader.readLine()) != null) {
             if (line.length() == 6) {
-                referenceWords.add(line);
+                getReferenceWords().add(line);
             } else if (line.length() == 5) {
                 wordsWith5Letters.add(line);
             } else if (line.length() == 4) {
@@ -84,7 +84,7 @@ public class WordBuilder2 {
         for (String prefix : set1) {
             for (String suffix : set2) {
                 final String newWord = prefix + suffix;
-                if (referenceWords.contains(newWord)) {
+                if (getReferenceWords().contains(newWord)) {
                     // System.out.println(prefix + "-" + suffix);
                     validWords.add(newWord);
                 }
@@ -104,5 +104,19 @@ public class WordBuilder2 {
      */
     public Set<String> getWords() {
         return validWords;
+    }
+
+    /**
+     * @param referenceWords the referenceWords to set
+     */
+    public void setReferenceWords(Set<String> referenceWords) {
+        this.referenceWords = referenceWords;
+    }
+
+    /**
+     * @return the referenceWords
+     */
+    public Set<String> getReferenceWords() {
+        return referenceWords;
     }
 }

@@ -36,5 +36,6 @@ public class WordBuilderTest {
         System.out.println(wb.getClass().getSimpleName() + " generated: " + number1 + " words");
         System.out.println(wb2.getClass().getSimpleName() + " generated: " + number2 + " words");
         assertEquals(wb.getWords(), wb2.getWords());
+        System.out.println(wb.getReferenceWords().size());
     }
 }

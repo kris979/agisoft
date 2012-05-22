@@ -51,7 +51,7 @@ public class WordBuilder {
         String line = null;
         while ((line = reader.readLine()) != null) {
             if (line.length() == 6) {
-                referenceWords.add(line);
+                getReferenceWords().add(line);
             } else if (line.length() < 6) {
                 wordsWithLessThan6Letters.add(line);
             }
@@ -69,7 +69,7 @@ public class WordBuilder {
                 int suffixLength = suffix.length();
                 if (prefixLength + suffixLength <= 6) {
                     final String newWord = prefix+suffix;
-                    if (referenceWords.contains(newWord)) {
+                    if (getReferenceWords().contains(newWord)) {
 //                        System.out.println(prefix + "-" + suffix);
                         validWords.add(newWord);
                     }
@@ -92,6 +92,20 @@ public class WordBuilder {
      */
     public int getNumberOfWords() {
         return validWords.size();
+    }
+
+    /**
+     * @param referenceWords the referenceWords to set
+     */
+    public void setReferenceWords(Set<String> referenceWords) {
+        this.referenceWords = referenceWords;
+    }
+
+    /**
+     * @return the referenceWords
+     */
+    public Set<String> getReferenceWords() {
+        return referenceWords;
     }
 
 }
