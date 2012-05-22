@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.Timer;
 
 /**
  * 
@@ -31,9 +32,13 @@ public class WordBuilder {
      * @throws IOException 
      */
     public WordBuilder(File dictionaryfile) throws IOException {
+        super();
+        long start = System.currentTimeMillis();
         dictionary = dictionaryfile;
         parseDictionaryIntoSets();
         generateValidWords();
+        long end = System.currentTimeMillis();
+        System.out.println( getClass().getSimpleName() + " whole took " + (end-start) + "ms");
     }
 
     /**
@@ -57,6 +62,7 @@ public class WordBuilder {
      * 
      */
     private void generateValidWords() {
+        long start = System.currentTimeMillis();
         for (String prefix : wordsWithLessThan6Letters) {
             int prefixLength = prefix.length();
             for (String suffix : wordsWithLessThan6Letters) {
@@ -64,12 +70,14 @@ public class WordBuilder {
                 if (prefixLength + suffixLength <= 6) {
                     final String newWord = prefix+suffix;
                     if (referenceWords.contains(newWord)) {
-                        System.out.println(prefix + "-" + suffix);
+//                        System.out.println(prefix + "-" + suffix);
                         validWords.add(newWord);
                     }
                 }
             }
         }
+        long end = System.currentTimeMillis();
+        System.out.println( getClass().getSimpleName() + " took " + (end-start) + "ms");
     }
     
     /**
