@@ -1,0 +1,80 @@
+/* 
+  * ============================================================================ 
+  * Name      : CheckOutTest.java
+  * ============================================================================
+  */
+package kataIX;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+
+/**
+ * 
+ *
+ */
+public class CheckOutTest {
+    
+    private List<Rule> testRules = new ArrayList<Rule>();
+    private CheckOut co;
+
+    @Before 
+    public void prepareTestRules() {
+        Rule ruleForA = new RuleImpl("A",3,50,130);
+        Rule ruleForB = new RuleImpl("B",2,30,45);
+        testRules.add(ruleForA);
+        testRules.add(ruleForB);
+        co = CheckOutImpl.getInstance(testRules);
+    }
+    
+    @Test
+    public void singleScanTest() {
+        assertTrue(co.scan("A"));
+    }
+    
+//    @SuppressWarnings("deprecation")
+//    @Test
+//    public void incrementalTest() {
+//        assertThat(co.total(), is(0d));
+//        co.scan("A");  assertThat( co.total(), is(50d));
+//        co.scan("B");  assertThat( co.total(), is(80d));
+//        co.scan("A");  assertThat( co.total(), is(130d));
+//        co.scan("A");  assertThat( co.total(), is(160d));
+//        co.scan("B");  assertThat( co.total(), is(175d));
+//    }
+//    
+    @SuppressWarnings("deprecation")
+    @Test
+    public void totalsTest() {
+        assertThat( price(""), is(0d));
+        assertThat( price("A"), is(50d));
+        assertThat( price("AB"), is(80d));
+//        assertThat( price("CDBA"), is(115d));
+//
+//        assertEquals(100, price("AA"));
+//        assertEquals(130, price("AAA"));
+//        assertEquals(180, price("AAAA"));
+//        assertEquals(230, price("AAAAA"));
+//        assertEquals(260, price("AAAAAA"));
+//
+//        assertEquals(160, price("AAAB"));
+//        assertEquals(175, price("AAABB"));
+//        assertEquals(190, price("AAABBD"));
+//        assertEquals(190, price("DABABA"));
+    }
+    
+    private double price(String order) {
+        char[] items = order.toCharArray();
+        for (int i = 0; i < items.length; i++) {
+            co.scan(items[i]);
+        }
+        return co.total();
+    }
+}
