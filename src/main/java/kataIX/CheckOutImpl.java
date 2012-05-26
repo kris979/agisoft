@@ -18,22 +18,22 @@ public class CheckOutImpl implements CheckOut {
     
     private double total = 0.0D;
     private List<String> items = new ArrayList<String>();
-    private Map<String,Rule> rules = new LinkedHashMap<String,Rule>();
+    private Map<String,DiscountRule> rules = new LinkedHashMap<String,DiscountRule>();
 
     /**
      * @param rule
      * @return
      */
-    public static CheckOut getInstance(List<Rule> rules) {
+    public static CheckOut getInstance(List<DiscountRule> rules) {
         return new CheckOutImpl(rules);
     }
     
     /**
      * 
      */
-    private CheckOutImpl(List<Rule> rules) {
+    private CheckOutImpl(List<DiscountRule> rules) {
         super();
-        for (Rule rule : rules) {
+        for (DiscountRule rule : rules) {
             String name = rule.name();
             this.rules.put(name, rule);
         }
@@ -45,7 +45,7 @@ public class CheckOutImpl implements CheckOut {
      */
     @Override
     public boolean scan(String item) {
-        Rule rule = rules.get(item);
+        DiscountRule rule = rules.get(item);
         if (rule == null) {
             throw new ItemNotInStockException();
         }
@@ -66,7 +66,7 @@ public class CheckOutImpl implements CheckOut {
      */
     @Override
     public double total() {
-        for (Rule rule : rules.values()) {
+        for (DiscountRule rule : rules.values()) {
             total = rule.applyDiscount(total, items);
         }
         return total;
@@ -79,7 +79,7 @@ public class CheckOutImpl implements CheckOut {
     public void reset() {
         total = 0d;
         items.clear();
-        for (Rule rule : rules.values()) {
+        for (DiscountRule rule : rules.values()) {
             rule.resetDiscountCounter();
         }
     }

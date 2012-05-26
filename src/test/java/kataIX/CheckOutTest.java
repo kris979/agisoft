@@ -22,13 +22,13 @@ import org.junit.Test;
  */
 public class CheckOutTest {
     
-    private List<Rule> testRules = new ArrayList<Rule>();
+    private List<DiscountRule> testRules = new ArrayList<DiscountRule>();
     private CheckOut co;
 
     @Before 
     public void prepareTestRules() {
-        Rule ruleForA = new RuleImpl("A",3,50,130);
-        Rule ruleForB = new RuleImpl("B",2,30,45);
+        DiscountRule ruleForA = new DiscountRule("A",3,50,130);
+        DiscountRule ruleForB = new DiscountRule("B",2,30,45);
         testRules.add(ruleForA);
         testRules.add(ruleForB);
         co = CheckOutImpl.getInstance(testRules);

@@ -1,17 +1,13 @@
 /* 
   * ============================================================================ 
-  * Name      : RuleImpl.java
+  * Name      : DiscountRule.java
   * ============================================================================
   */
 package kataIX;
 
 import java.util.List;
 
-/**
- * 
- *
- */
-public class RuleImpl implements Rule {
+public class DiscountRule {
 
     private String itemName;
     private int itemsRequiredForSpecialPrice = 0;
@@ -26,7 +22,7 @@ public class RuleImpl implements Rule {
      * @param unitPrice
      * @param specialPrice
      */
-    RuleImpl(String itemName, int itemsRequiredForSpecialPrice, double unitPrice, double specialPrice) {
+    public DiscountRule(String itemName, int itemsRequiredForSpecialPrice, double unitPrice, double specialPrice) {
         super();
         this.itemName = itemName;
         this.itemsRequiredForSpecialPrice = itemsRequiredForSpecialPrice;
@@ -34,14 +30,45 @@ public class RuleImpl implements Rule {
         this.specialPrice = specialPrice;
         this.discount = (itemsRequiredForSpecialPrice*unitPrice) - this.specialPrice;
     }
+    
+    public DiscountRule(String itemName, double unitPrice) {
+        super();
+        this.itemName = itemName;
+        this.unitPrice = unitPrice;
+    }
 
     /* (non-Javadoc)
      * @see kataIX.Rule#applyDiscount(double, java.util.List)
      */
-    @Override
     public double applyDiscount(double currentTotalPrice, List<String> items) {
+        int discountsToApply = countDiscounts(items);
+        if (discountsToApply > appliedDiscountCounter) {
+            return applyDiscount(currentTotalPrice, discountsToApply);
+        } else {
+            return currentTotalPrice;
+        }
+    }
+
+    /**
+     * @param newTotalPrice
+     * @param discountsToApply
+     * @return
+     */
+    private double applyDiscount(double currentTotalPrice, int discountsToApply) {
         double newTotalPrice = currentTotalPrice;
-        
+        double currentDiscount = valueOfCurrentDiscounts(discountsToApply);
+        double appliedDiscount = valueOfAppliedDiscounts();
+        double calculatedDiscount = currentDiscount - appliedDiscount;
+        newTotalPrice -= calculatedDiscount;
+        appliedDiscountCounter++;
+        return newTotalPrice;
+    }
+
+    /**
+     * @param items
+     * @return
+     */
+    private int countDiscounts(List<String> items) {
         int discountsToApply = 0;
         int itemsCounter = 0;
         for (String item : items) {
@@ -53,17 +80,7 @@ public class RuleImpl implements Rule {
                 itemsCounter = 0;
             }
         }
-        
-        if (discountsToApply > appliedDiscountCounter) {
-            double currentDiscount = valueOfCurrentDiscounts(discountsToApply);
-            double appliedDiscount = valueOfAppliedDiscounts();
-            double calculatedDiscount = currentDiscount - appliedDiscount;
-            newTotalPrice -= calculatedDiscount;
-            appliedDiscountCounter++;
-            return newTotalPrice;
-        } else {
-            return currentTotalPrice;
-        }
+        return discountsToApply;
     }
 
     private double valueOfCurrentDiscounts(int discountsToApply) {
@@ -76,7 +93,6 @@ public class RuleImpl implements Rule {
     /* (non-Javadoc)
      * @see kataIX.Rule#name()
      */
-    @Override
     public String name() {
         return itemName;
     }
@@ -84,7 +100,6 @@ public class RuleImpl implements Rule {
     /* (non-Javadoc)
      * @see kataIX.Rule#getPrice()
      */
-    @Override
     public double getPrice() {
         return unitPrice;
     }
@@ -92,7 +107,6 @@ public class RuleImpl implements Rule {
     /* (non-Javadoc)
      * @see kataIX.Rule#resetDiscountCounter()
      */
-    @Override
     public void resetDiscountCounter() {
         appliedDiscountCounter = 0;
     }
