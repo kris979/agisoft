@@ -22,16 +22,16 @@ import org.junit.Test;
  */
 public class CheckOutTest {
     
-    private List<DiscountRule> testRules = new ArrayList<DiscountRule>();
+    private List<Item> items = new ArrayList<Item>();
     private CheckOut co;
 
     @Before 
     public void prepareTestRules() {
-        DiscountRule ruleForA = new DiscountRule("A",3,50,130);
-        DiscountRule ruleForB = new DiscountRule("B",2,30,45);
-        testRules.add(ruleForA);
-        testRules.add(ruleForB);
-        co = CheckOutImpl.getInstance(testRules);
+        Item ruleForA = new Item("A",3,50,130);
+        Item ruleForB = new Item("B",2,30,45);
+        items.add(ruleForA);
+        items.add(ruleForB);
+        co = SuperMarketCheckout.withDiscountRules(items);
     }
     
     @Test
@@ -54,19 +54,19 @@ public class CheckOutTest {
     
     @Test
     public void totalsTest() {
-        assertThat( price(""), is(0d)); co.reset();
-        assertThat( price("A"), is(50d)); co.reset();
-        assertThat( price("B"), is(30d)); co.reset();
-        assertThat( price("AB"), is(80d)); co.reset();
-        assertThat( price("AA"), is(100d)); co.reset();
+        assertThat( price(""), is(0d)); co.resetForNewCustomer();
+        assertThat( price("A"), is(50d)); co.resetForNewCustomer();
+        assertThat( price("B"), is(30d)); co.resetForNewCustomer();
+        assertThat( price("AB"), is(80d)); co.resetForNewCustomer();
+        assertThat( price("AA"), is(100d)); co.resetForNewCustomer();
         
-        assertThat( price("AAA"), is(130d)); co.reset();
-        assertThat( price("AAAA"), is(180d)); co.reset();
-        assertThat( price("AAAAA"), is(230d)); co.reset();
-        assertThat( price("AAAAAA"), is(260d)); co.reset();
+        assertThat( price("AAA"), is(130d)); co.resetForNewCustomer();
+        assertThat( price("AAAA"), is(180d)); co.resetForNewCustomer();
+        assertThat( price("AAAAA"), is(230d)); co.resetForNewCustomer();
+        assertThat( price("AAAAAA"), is(260d)); co.resetForNewCustomer();
 
-        assertThat( price("AAAB"), is(160d)); co.reset();
-        assertThat( price("AAABB"), is(175d)); co.reset();
+        assertThat( price("AAAB"), is(160d)); co.resetForNewCustomer();
+        assertThat( price("AAABB"), is(175d)); co.resetForNewCustomer();
     }
     
     private double price(String order) {

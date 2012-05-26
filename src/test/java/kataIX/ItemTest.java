@@ -1,6 +1,6 @@
 /* 
   * ============================================================================ 
-  * Name      : RuleTest.java
+  * Name      : ItemTest.java
   * ============================================================================
   */
 package kataIX;
@@ -18,11 +18,11 @@ import org.junit.Test;
  * 
  *
  */
-public class RuleTest {
+public class ItemTest {
     
     private List<String> itemsToBuy = new ArrayList<String>();
-    private DiscountRule ruleA = new DiscountRule("A", 3, 50, 130);
-    private DiscountRule ruleWithoutDiscount = new DiscountRule("C", 10);
+    private Item ruleA = new Item("A", 3, 50, 130);
+    private Item ruleWithoutDiscount = new Item("C", 10);
     private double totalPrice = 100D;
 
     @Test
@@ -33,7 +33,7 @@ public class RuleTest {
     }
     
     @Test
-    public void discoutCaclulation1() {
+    public void shouldSubstractOneDiscount() {
         itemsToBuy.add("A");
         itemsToBuy.add("A");
         itemsToBuy.add("A");
@@ -42,7 +42,17 @@ public class RuleTest {
     }
     
     @Test
-    public void discoutCaclulation2() {
+    public void shouldSubstractOneDiscount1() {
+        itemsToBuy.add("A");        itemsToBuy.add("B");
+        itemsToBuy.add("A");        itemsToBuy.add("B");
+        itemsToBuy.add("A");        itemsToBuy.add("B");
+        itemsToBuy.add("A");
+        double newTotal = ruleA.applyDiscount(totalPrice, itemsToBuy);
+        assertThat(newTotal, is(80D));
+    }
+
+    @Test
+    public void shouldNotSubstractAnything() {
         itemsToBuy.add("A");
         itemsToBuy.add("B");
         itemsToBuy.add("A");
@@ -51,17 +61,7 @@ public class RuleTest {
     }
     
     @Test
-    public void discoutCaclulation3() {
-        itemsToBuy.add("A");        itemsToBuy.add("B");
-        itemsToBuy.add("A");        itemsToBuy.add("B");
-        itemsToBuy.add("A");        itemsToBuy.add("B");
-        itemsToBuy.add("A");
-        double newTotal = ruleA.applyDiscount(totalPrice, itemsToBuy);
-        assertThat(newTotal, is(80D));
-    }
-    
-    @Test
-    public void discoutCaclulation4() {
+    public void shouldSubstractThreeDiscounts() {
         itemsToBuy.add("A");        itemsToBuy.add("B");
         itemsToBuy.add("A");        itemsToBuy.add("B");
         itemsToBuy.add("A");        itemsToBuy.add("B");

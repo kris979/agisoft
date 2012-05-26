@@ -1,13 +1,13 @@
 /* 
   * ============================================================================ 
-  * Name      : DiscountRule.java
+  * Name      : Item.java
   * ============================================================================
   */
 package kataIX;
 
 import java.util.List;
 
-public class DiscountRule {
+public class Item {
 
     private String itemName;
     private int itemsRequiredForSpecialPrice = 0;
@@ -22,7 +22,7 @@ public class DiscountRule {
      * @param unitPrice
      * @param specialPrice
      */
-    public DiscountRule(String itemName, int itemsRequiredForSpecialPrice, double unitPrice, double specialPrice) {
+    public Item(String itemName, int itemsRequiredForSpecialPrice, double unitPrice, double specialPrice) {
         super();
         this.itemName = itemName;
         this.itemsRequiredForSpecialPrice = itemsRequiredForSpecialPrice;
@@ -31,7 +31,7 @@ public class DiscountRule {
         this.discount = (itemsRequiredForSpecialPrice*unitPrice) - this.specialPrice;
     }
     
-    public DiscountRule(String itemName, double unitPrice) {
+    public Item(String itemName, double unitPrice) {
         super();
         this.itemName = itemName;
         this.unitPrice = unitPrice;

@@ -21,9 +21,5 @@ public interface CheckOut {
 
     public double total();
 
-    /**
-     * @return 
-     * 
-     */
-    public void reset();
+    public void resetForNewCustomer();
 }

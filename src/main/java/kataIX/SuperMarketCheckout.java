@@ -1,6 +1,6 @@
 /* 
   * ============================================================================ 
-  * Name      : CheckOutImpl.java
+  * Name      : SuperMarketCheckout.java
   * ============================================================================
   */
 package kataIX;
@@ -14,26 +14,26 @@ import java.util.Map;
  * 
  *
  */
-public class CheckOutImpl implements CheckOut {
+public class SuperMarketCheckout implements CheckOut {
     
     private double total = 0.0D;
-    private List<String> items = new ArrayList<String>();
-    private Map<String,DiscountRule> rules = new LinkedHashMap<String,DiscountRule>();
+    private List<String> basket = new ArrayList<String>();
+    private Map<String,Item> rules = new LinkedHashMap<String,Item>();
 
     /**
      * @param rule
      * @return
      */
-    public static CheckOut getInstance(List<DiscountRule> rules) {
-        return new CheckOutImpl(rules);
+    public static CheckOut withDiscountRules(List<Item> rules) {
+        return new SuperMarketCheckout(rules);
     }
     
     /**
      * 
      */
-    private CheckOutImpl(List<DiscountRule> rules) {
+    private SuperMarketCheckout(List<Item> rules) {
         super();
-        for (DiscountRule rule : rules) {
+        for (Item rule : rules) {
             String name = rule.name();
             this.rules.put(name, rule);
         }
@@ -45,12 +45,20 @@ public class CheckOutImpl implements CheckOut {
      */
     @Override
     public boolean scan(String item) {
-        DiscountRule rule = rules.get(item);
+        Item rule = rules.get(item);
+        checkIfInStock(rule);
+        total+=rule.getPrice();
+        return basket.add(item);
+    }
+
+    /**
+     * @param rule
+     * @throws ItemNotInStockException
+     */
+    private void checkIfInStock(Item rule) throws ItemNotInStockException {
         if (rule == null) {
             throw new ItemNotInStockException();
         }
-        total+=rule.getPrice();
-        return items.add(item);
     }
     
     /* (non-Javadoc)
@@ -66,8 +74,8 @@ public class CheckOutImpl implements CheckOut {
      */
     @Override
     public double total() {
-        for (DiscountRule rule : rules.values()) {
-            total = rule.applyDiscount(total, items);
+        for (Item rule : rules.values()) {
+            total = rule.applyDiscount(total, basket);
         }
         return total;
     }
@@ -76,10 +84,10 @@ public class CheckOutImpl implements CheckOut {
      * @see kataIX.CheckOut#reset()
      */
     @Override
-    public void reset() {
+    public void resetForNewCustomer() {
         total = 0d;
-        items.clear();
-        for (DiscountRule rule : rules.values()) {
+        basket.clear();
+        for (Item rule : rules.values()) {
             rule.resetDiscountCounter();
         }
     }
