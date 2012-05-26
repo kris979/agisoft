@@ -38,7 +38,6 @@ public class SuperMarketCheckout implements CheckOut {
             this.rules.put(name, rule);
         }
     }
-
     
     /* (non-Javadoc)
      * @see kataIX.CheckOut#scan(java.lang.String)
@@ -90,6 +89,22 @@ public class SuperMarketCheckout implements CheckOut {
         for (Item rule : rules.values()) {
             rule.resetDiscountCounter();
         }
+    }
+
+    /**
+     * @return
+     */
+    public static CheckOut getInstance() {
+        return new SuperMarketCheckout(new ArrayList<Item>());
+    }
+
+    /**
+     * @param stockList
+     * @return
+     */
+    public static CheckOut withStockList(List<Item> stockList) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 

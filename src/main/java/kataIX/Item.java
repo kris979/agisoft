@@ -9,20 +9,29 @@ import java.util.List;
 
 public class Item {
 
-    private String itemName;
-    private int itemsRequiredForSpecialPrice = 0;
-    private double unitPrice = 0d;
-    private double specialPrice = 0d;
-    private double discount = 0d;
+    private final String itemName;
+    private final int itemsRequiredForSpecialPrice;
+    private final double unitPrice;
+    private final double specialPrice;
+    private final double discount;
+    
     private int appliedDiscountCounter = 0;
 
+    public static Item withDiscount(String itemName, int itemsRequiredForSpecialPrice, double unitPrice, double specialPrice){
+        return new Item(itemName, itemsRequiredForSpecialPrice, unitPrice, specialPrice);
+    }
+    
+    public static Item withoutDiscount(String itemName, double unitPrice) {
+        return new Item(itemName, 0, unitPrice, 0);
+    }
+    
     /**
      * @param itemName
      * @param itemsRequiredForSpecialPrice
      * @param unitPrice
      * @param specialPrice
      */
-    public Item(String itemName, int itemsRequiredForSpecialPrice, double unitPrice, double specialPrice) {
+    private Item(String itemName, int itemsRequiredForSpecialPrice, double unitPrice, double specialPrice) {
         super();
         this.itemName = itemName;
         this.itemsRequiredForSpecialPrice = itemsRequiredForSpecialPrice;
@@ -31,12 +40,6 @@ public class Item {
         this.discount = (itemsRequiredForSpecialPrice*unitPrice) - this.specialPrice;
     }
     
-    public Item(String itemName, double unitPrice) {
-        super();
-        this.itemName = itemName;
-        this.unitPrice = unitPrice;
-    }
-
     /* (non-Javadoc)
      * @see kataIX.Rule#applyDiscount(double, java.util.List)
      */
@@ -107,7 +110,7 @@ public class Item {
     /* (non-Javadoc)
      * @see kataIX.Rule#resetDiscountCounter()
      */
-    public void resetDiscountCounter() {
+    public synchronized void resetDiscountCounter() {
         appliedDiscountCounter = 0;
     }
 

@@ -6,8 +6,8 @@
 package kataIX;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,16 +22,22 @@ import org.junit.Test;
  */
 public class CheckOutTest {
     
-    private List<Item> items = new ArrayList<Item>();
+    private List<Item> stockList = new ArrayList<Item>();
     private CheckOut co;
 
     @Before 
     public void prepareTestRules() {
-        Item ruleForA = new Item("A",3,50,130);
-        Item ruleForB = new Item("B",2,30,45);
-        items.add(ruleForA);
-        items.add(ruleForB);
-        co = SuperMarketCheckout.withDiscountRules(items);
+        Item itemA = Item.withDiscount("A",3,50,130);
+        Item itemB = Item.withDiscount("B",2,30,45);
+        stockList.add(itemA);
+        stockList.add(itemB);
+        co = SuperMarketCheckout.withStockList(stockList);
+    }
+    
+    @Test(expected = ItemNotInStockException.class)
+    public void checkoutWithoutStock() {
+        co = SuperMarketCheckout.getInstance();
+        co.scan("A");
     }
     
     @Test

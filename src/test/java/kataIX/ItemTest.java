@@ -20,55 +20,55 @@ import org.junit.Test;
  */
 public class ItemTest {
     
-    private List<String> itemsToBuy = new ArrayList<String>();
-    private Item ruleA = new Item("A", 3, 50, 130);
-    private Item ruleWithoutDiscount = new Item("C", 10);
+    private List<String> shoppingList = new ArrayList<String>();
+    private Item discountedItem = Item.withDiscount("A", 3, 50, 130);
+    private Item itemsWithoutDiscount = Item.withoutDiscount("C", 10);
     private double totalPrice = 100D;
 
     @Test
     public void testRuleWithoutDiscount() {
-        itemsToBuy.add("C");
-        double newTotal = ruleWithoutDiscount.applyDiscount(totalPrice, itemsToBuy);
+        shoppingList.add("C");
+        double newTotal = itemsWithoutDiscount.applyDiscount(totalPrice, shoppingList);
         assertThat(newTotal, is(100D));
     }
     
     @Test
     public void shouldSubstractOneDiscount() {
-        itemsToBuy.add("A");
-        itemsToBuy.add("A");
-        itemsToBuy.add("A");
-        double newTotal = ruleA.applyDiscount(totalPrice, itemsToBuy);
+        shoppingList.add("A");
+        shoppingList.add("A");
+        shoppingList.add("A");
+        double newTotal = discountedItem.applyDiscount(totalPrice, shoppingList);
         assertThat(newTotal, is(80D));
     }
     
     @Test
     public void shouldSubstractOneDiscount1() {
-        itemsToBuy.add("A");        itemsToBuy.add("B");
-        itemsToBuy.add("A");        itemsToBuy.add("B");
-        itemsToBuy.add("A");        itemsToBuy.add("B");
-        itemsToBuy.add("A");
-        double newTotal = ruleA.applyDiscount(totalPrice, itemsToBuy);
+        shoppingList.add("A");        shoppingList.add("B");
+        shoppingList.add("A");        shoppingList.add("B");
+        shoppingList.add("A");        shoppingList.add("B");
+        shoppingList.add("A");
+        double newTotal = discountedItem.applyDiscount(totalPrice, shoppingList);
         assertThat(newTotal, is(80D));
     }
 
     @Test
     public void shouldNotSubstractAnything() {
-        itemsToBuy.add("A");
-        itemsToBuy.add("B");
-        itemsToBuy.add("A");
-        double newTotal = ruleA.applyDiscount(totalPrice, itemsToBuy);
+        shoppingList.add("A");
+        shoppingList.add("B");
+        shoppingList.add("A");
+        double newTotal = discountedItem.applyDiscount(totalPrice, shoppingList);
         assertThat(newTotal, is(100D));
     }
     
     @Test
     public void shouldSubstractThreeDiscounts() {
-        itemsToBuy.add("A");        itemsToBuy.add("B");
-        itemsToBuy.add("A");        itemsToBuy.add("B");
-        itemsToBuy.add("A");        itemsToBuy.add("B");
-        itemsToBuy.add("A");        itemsToBuy.add("A");
-        itemsToBuy.add("A");        itemsToBuy.add("A");
-        itemsToBuy.add("A");        itemsToBuy.add("A");
-        double newTotal = ruleA.applyDiscount(totalPrice, itemsToBuy);
+        shoppingList.add("A");        shoppingList.add("B");
+        shoppingList.add("A");        shoppingList.add("B");
+        shoppingList.add("A");        shoppingList.add("B");
+        shoppingList.add("A");        shoppingList.add("A");
+        shoppingList.add("A");        shoppingList.add("A");
+        shoppingList.add("A");        shoppingList.add("A");
+        double newTotal = discountedItem.applyDiscount(totalPrice, shoppingList);
         assertThat(newTotal, is(40D));
     }
 }
