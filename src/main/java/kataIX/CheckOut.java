@@ -20,4 +20,10 @@ public interface CheckOut {
     public boolean scan(char items);
 
     public double total();
+
+    /**
+     * @return 
+     * 
+     */
+    public void reset();
 }

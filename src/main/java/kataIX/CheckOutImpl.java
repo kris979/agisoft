@@ -72,5 +72,17 @@ public class CheckOutImpl implements CheckOut {
         return total;
     }
 
+    /* (non-Javadoc)
+     * @see kataIX.CheckOut#reset()
+     */
+    @Override
+    public void reset() {
+        total = 0d;
+        items.clear();
+        for (Rule rule : rules.values()) {
+            rule.resetDiscountCounter();
+        }
+    }
+
 
 }

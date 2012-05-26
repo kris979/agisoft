@@ -28,4 +28,10 @@ public interface Rule {
      */
     public double getPrice();
 
+
+    /**
+     * 
+     */
+    public void resetDiscountCounter();
+
 }

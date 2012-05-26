@@ -18,6 +18,7 @@ public class RuleImpl implements Rule {
     private double unitPrice = 0d;
     private double specialPrice = 0d;
     private double discount = 0d;
+    private int appliedDiscountCounter = 0;
 
     /**
      * @param itemName
@@ -40,19 +41,38 @@ public class RuleImpl implements Rule {
     @Override
     public double applyDiscount(double currentTotalPrice, List<String> items) {
         double newTotalPrice = currentTotalPrice;
-        int counter = 0;
-        for (String string : items) {
-            if(string.equals(itemName)) {
-                counter++;
+        
+        int discountsToApply = 0;
+        int itemsCounter = 0;
+        for (String item : items) {
+            if(item.equals(itemName)) {
+                itemsCounter++;
             }
-            if (counter == itemsRequiredForSpecialPrice) {
-                newTotalPrice-=discount;
-                counter = 0;
+            if (itemsCounter == itemsRequiredForSpecialPrice) {
+                discountsToApply++;
+                itemsCounter = 0;
             }
         }
-        return newTotalPrice;
+        
+        if (discountsToApply > appliedDiscountCounter) {
+            double currentDiscount = valueOfCurrentDiscounts(discountsToApply);
+            double appliedDiscount = valueOfAppliedDiscounts();
+            double calculatedDiscount = currentDiscount - appliedDiscount;
+            newTotalPrice -= calculatedDiscount;
+            appliedDiscountCounter++;
+            return newTotalPrice;
+        } else {
+            return currentTotalPrice;
+        }
     }
 
+    private double valueOfCurrentDiscounts(int discountsToApply) {
+        return discountsToApply*this.discount;
+    }
+    private double valueOfAppliedDiscounts() {
+        return this.appliedDiscountCounter * this.discount;
+    }
+    
     /* (non-Javadoc)
      * @see kataIX.Rule#name()
      */
@@ -67,6 +87,14 @@ public class RuleImpl implements Rule {
     @Override
     public double getPrice() {
         return unitPrice;
+    }
+
+    /* (non-Javadoc)
+     * @see kataIX.Rule#resetDiscountCounter()
+     */
+    @Override
+    public void resetDiscountCounter() {
+        appliedDiscountCounter = 0;
     }
 
 }

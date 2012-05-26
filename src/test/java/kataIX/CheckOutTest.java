@@ -39,35 +39,34 @@ public class CheckOutTest {
         assertTrue(co.scan("A"));
     }
     
-//    @SuppressWarnings("deprecation")
-//    @Test
-//    public void incrementalTest() {
-//        assertThat(co.total(), is(0d));
-//        co.scan("A");  assertThat( co.total(), is(50d));
-//        co.scan("B");  assertThat( co.total(), is(80d));
-//        co.scan("A");  assertThat( co.total(), is(130d));
-//        co.scan("A");  assertThat( co.total(), is(160d));
-//        co.scan("B");  assertThat( co.total(), is(175d));
-//    }
-//    
-    @SuppressWarnings("deprecation")
+    @Test
+    public void incrementalTest() {
+        assertThat(co.total(), is(0d));
+        co.scan("A");  assertThat( co.total(), is(50d));
+        co.scan("B");  assertThat( co.total(), is(80d));
+        co.scan("A");  assertThat( co.total(), is(130d));
+        co.scan("A");  assertThat( co.total(), is(160d));
+        co.scan("B");  assertThat( co.total(), is(175d));
+        co.scan("A");  assertThat( co.total(), is(225d));
+        co.scan("A");  assertThat( co.total(), is(275d));
+        co.scan("A");  assertThat( co.total(), is(305d));
+    }
+    
     @Test
     public void totalsTest() {
-        assertThat( price(""), is(0d));
-        assertThat( price("A"), is(50d));
-        assertThat( price("AB"), is(80d));
-//        assertThat( price("CDBA"), is(115d));
-//
-//        assertEquals(100, price("AA"));
-//        assertEquals(130, price("AAA"));
-//        assertEquals(180, price("AAAA"));
-//        assertEquals(230, price("AAAAA"));
-//        assertEquals(260, price("AAAAAA"));
-//
-//        assertEquals(160, price("AAAB"));
-//        assertEquals(175, price("AAABB"));
-//        assertEquals(190, price("AAABBD"));
-//        assertEquals(190, price("DABABA"));
+        assertThat( price(""), is(0d)); co.reset();
+        assertThat( price("A"), is(50d)); co.reset();
+        assertThat( price("B"), is(30d)); co.reset();
+        assertThat( price("AB"), is(80d)); co.reset();
+        assertThat( price("AA"), is(100d)); co.reset();
+        
+        assertThat( price("AAA"), is(130d)); co.reset();
+        assertThat( price("AAAA"), is(180d)); co.reset();
+        assertThat( price("AAAAA"), is(230d)); co.reset();
+        assertThat( price("AAAAAA"), is(260d)); co.reset();
+
+        assertThat( price("AAAB"), is(160d)); co.reset();
+        assertThat( price("AAABB"), is(175d)); co.reset();
     }
     
     private double price(String order) {
