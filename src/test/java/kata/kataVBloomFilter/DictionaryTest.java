@@ -3,7 +3,7 @@
   * Name      : BloomFilterTest.java
   * ============================================================================
   */
-package kataVBloomFilter;
+package kata.kataVBloomFilter;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -11,9 +11,7 @@ import static org.hamcrest.Matchers.is;
 import java.io.File;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -24,8 +22,8 @@ import org.junit.Test;
  */
 public class DictionaryTest {
     
-    private static final File dictionaryFile = new File("src/test/java/kataVBloomFilter/en-GB.dic");
-//    private static final File dictionaryFile = new File("src/test/java/kataVBloomFilter/small.txt");
+    private static final File dictionaryFile = new File("src/test/java/kata.kataVBloomFilter/en-GB.dic");
+//    private static final File dictionaryFile = new File("src/test/java/kata.kataVBloomFilter/small.txt");
     private static Dictionary dict;
     
     

@@ -3,13 +3,16 @@
   * Name      : WeatherTest.java
   * ============================================================================
   */
-package kataIV;
+package kata.kataIV;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
 import java.io.File;
+
+import kata.kataIV.Day;
+import kata.kataIV.WeatherParser;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +24,7 @@ import org.junit.Test;
  */
 public class WeatherParserTest {
     
-    private File weatherFile = new File("src/test/java/kataIV/weather.dat");
+    private File weatherFile = new File("src/test/java/kata.kataIV/weather.dat");
     private WeatherParser weatherParser;
 
     

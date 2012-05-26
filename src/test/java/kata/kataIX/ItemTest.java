@@ -3,13 +3,15 @@
   * Name      : ItemTest.java
   * ============================================================================
   */
-package kataIX;
+package kata.kataIX;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import kata.kataIX.Item;
 
 import org.junit.Test;
 

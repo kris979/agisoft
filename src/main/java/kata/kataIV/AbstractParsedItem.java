@@ -3,7 +3,7 @@
  * Name      : AbstractParsedItem.java
  * ============================================================================
  */
-package kataIV;
+package kata.kataIV;
 
 /**
  * 

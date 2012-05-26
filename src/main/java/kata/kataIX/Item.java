@@ -3,7 +3,7 @@
   * Name      : Item.java
   * ============================================================================
   */
-package kataIX;
+package kata.kataIX;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class Item {
     }
     
     /* (non-Javadoc)
-     * @see kataIX.Rule#applyDiscount(double, java.util.List)
+     * @see kata.kataIX.Rule#applyDiscount(double, java.util.List)
      */
     public double applyDiscount(double currentTotalPrice, List<String> items) {
         int discountsToApply = countDiscounts(items);
@@ -94,21 +94,21 @@ public class Item {
     }
     
     /* (non-Javadoc)
-     * @see kataIX.Rule#name()
+     * @see kata.kataIX.Rule#name()
      */
     public String name() {
         return itemName;
     }
 
     /* (non-Javadoc)
-     * @see kataIX.Rule#getPrice()
+     * @see kata.kataIX.Rule#getPrice()
      */
     public double getPrice() {
         return unitPrice;
     }
 
     /* (non-Javadoc)
-     * @see kataIX.Rule#resetDiscountCounter()
+     * @see kata.kataIX.Rule#resetDiscountCounter()
      */
     public synchronized void resetDiscountCounter() {
         appliedDiscountCounter = 0;

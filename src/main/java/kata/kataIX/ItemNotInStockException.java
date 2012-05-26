@@ -3,7 +3,7 @@
   * Name      : ItemNotInStockException.java
   * ============================================================================
   */
-package kataIX;
+package kata.kataIX;
 
 /**
  * 

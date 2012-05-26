@@ -3,12 +3,15 @@
   * Name      : WordBuilderTest.java
   * ============================================================================
   */
-package kataVIII;
+package kata.kataVIII;
 
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
+
+import kata.kataVIII.WordBuilder;
+import kata.kataVIII.WordBuilder2;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,7 +22,7 @@ import org.junit.Test;
  */
 public class WordBuilderTest {
     
-    private static final File dictionaryFile = new File("src/test/java/kataVIII/en-GB.dic");
+    private static final File dictionaryFile = new File("src/test/java/kata.kataVIII/en-GB.dic");
     private static WordBuilder wb;
     private static WordBuilder2 wb2;
     

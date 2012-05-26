@@ -3,7 +3,7 @@
  * Name      : AbstractParser.java
  * ============================================================================
  */
-package kataIV;
+package kata.kataIV;
 
 import java.io.BufferedReader;
 import java.io.File;

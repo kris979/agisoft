@@ -3,13 +3,16 @@
   * Name      : FootballTest.java
   * ============================================================================
   */
-package kataIV;
+package kata.kataIV;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
 import java.io.File;
+
+import kata.kataIV.FootballParser;
+import kata.kataIV.Team;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +24,7 @@ import org.junit.Test;
  */
 public class FootballParserTest {
     
-    private File footballFile = new File("src/test/java/kataIV/football.dat");
+    private File footballFile = new File("src/test/java/kata.kataIV/football.dat");
     private FootballParser footballParser;
 
     @Before

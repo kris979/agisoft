@@ -3,7 +3,7 @@
  * Name      : Dictionary.java
  * ============================================================================
  */
-package kataVBloomFilter;
+package kata.kataVBloomFilter;
 
 import java.io.BufferedReader;
 import java.io.File;

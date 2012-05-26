@@ -3,7 +3,7 @@
   * Name      : WeatherParser.java
   * ============================================================================
   */
-package kataIV;
+package kata.kataIV;
 
 import java.util.regex.Matcher;
 
@@ -40,7 +40,7 @@ public class WeatherParser extends AbstractParser {
 
 
     /* (non-Javadoc)
-     * @see kataIV.AbstractParser#getRegex()
+     * @see kata.kataIV.AbstractParser#getRegex()
      */
     @Override
     protected String getRegex() {

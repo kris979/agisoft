@@ -3,7 +3,7 @@
   * Name      : SuperMarketCheckout.java
   * ============================================================================
   */
-package kataIX;
+package kata.kataIX;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -40,7 +40,7 @@ public class SuperMarketCheckout implements CheckOut {
     }
     
     /* (non-Javadoc)
-     * @see kataIX.CheckOut#scan(java.lang.String)
+     * @see kata.kataIX.CheckOut#scan(java.lang.String)
      */
     @Override
     public boolean scan(String item) {
@@ -61,7 +61,7 @@ public class SuperMarketCheckout implements CheckOut {
     }
     
     /* (non-Javadoc)
-     * @see kataIX.CheckOut#scan(char)
+     * @see kata.kataIX.CheckOut#scan(char)
      */
     @Override
     public boolean scan(char item) {
@@ -69,7 +69,7 @@ public class SuperMarketCheckout implements CheckOut {
     }
 
     /* (non-Javadoc)
-     * @see kataIX.CheckOut#total()
+     * @see kata.kataIX.CheckOut#total()
      */
     @Override
     public double total() {
@@ -80,7 +80,7 @@ public class SuperMarketCheckout implements CheckOut {
     }
 
     /* (non-Javadoc)
-     * @see kataIX.CheckOut#reset()
+     * @see kata.kataIX.CheckOut#reset()
      */
     @Override
     public void resetForNewCustomer() {
