@@ -3,7 +3,7 @@
  * Name      : BinaryChop.java
  * ============================================================================
  */
-package binarychop;
+package kata.binarychop;
 
 
 /**

@@ -3,10 +3,11 @@
   * Name      : BinarybinaryChop.chopTest.java
   * ============================================================================
   */
-package binarychop;
+package kata.binarychop;
 
 
 import static org.junit.Assert.assertEquals;
+import kata.binarychop.BinaryChop;
 
 import org.junit.Test;
 
