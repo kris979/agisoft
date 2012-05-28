@@ -3,7 +3,7 @@
   * Name      : CommandParserTest.java
   * ============================================================================
   */
-package robot;
+package kata.robot;
 
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,7 +13,13 @@ import static org.hamcrest.Matchers.notNullValue;
 
 import java.util.List;
 
+import kata.robot.Command;
+import kata.robot.CommandParser;
+import kata.robot.MoveOntoCommand;
+import kata.robot.MoveOverCommand;
+
 import org.junit.Test;
+
 
 public class CommandParserTest {
     

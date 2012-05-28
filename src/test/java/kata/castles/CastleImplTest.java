@@ -3,10 +3,12 @@
  * Name      : CastleImplTest.java
  * ============================================================================
  */
-package castles;
+package kata.castles;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import kata.castles.CastleImpl;
+import kata.castles.NotEnoughSoldiersException;
 
 import org.junit.Test;
 

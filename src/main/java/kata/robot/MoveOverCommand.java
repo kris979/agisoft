@@ -3,7 +3,7 @@
   * Name      : MoveOverCommand.java
   * ============================================================================
   */
-package robot;
+package kata.robot;
 
 /**
  * 
@@ -20,7 +20,7 @@ public class MoveOverCommand extends AbstractCommand {
     }
 
     /* (non-Javadoc)
-     * @see robot.Command#execute()
+     * @see kata.robot.Command#execute()
      */
     @Override
     public void execute() {

@@ -3,7 +3,9 @@
   * Name      : RomanNumberIITest.java
   * ============================================================================
   */
-package roman;
+package kata.roman;
+
+import kata.roman.RomanNumberII;
 
 import org.junit.Test;
 

@@ -3,7 +3,7 @@
   * Name      : RegionTest.java
   * ============================================================================
   */
-package castles;
+package kata.castles;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -11,6 +11,11 @@ import static org.hamcrest.Matchers.notNullValue;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import kata.castles.Castle;
+import kata.castles.CastleImpl;
+import kata.castles.Region;
+import kata.castles.RegionImpl;
 
 import org.junit.Before;
 import org.junit.Test;

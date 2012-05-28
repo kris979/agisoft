@@ -3,7 +3,7 @@
   * Name      : Robot.java
   * ============================================================================
   */
-package robot;
+package kata.robot;
 
 import java.util.List;
 

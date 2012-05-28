@@ -3,7 +3,7 @@
   * Name      : CommandFactory.java
   * ============================================================================
   */
-package robot;
+package kata.robot;
 
 /**
  * 

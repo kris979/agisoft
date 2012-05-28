@@ -3,7 +3,7 @@
   * Name      : NotEnoughSoldiersException.java
   * ============================================================================
   */
-package castles;
+package kata.castles;
 
 /**
  * 

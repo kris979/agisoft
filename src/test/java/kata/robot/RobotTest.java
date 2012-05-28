@@ -3,12 +3,15 @@
   * Name      : RobotTest.java
   * ============================================================================
   */
-package robot;
+package kata.robot;
 
+
+import kata.robot.Robot;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 
 /**
  * 

@@ -3,7 +3,7 @@
   * Name      : Region.java
   * ============================================================================
   */
-package castles;
+package kata.castles;
 
 /**
  * 

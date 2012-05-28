@@ -3,7 +3,7 @@
   * Name      : RomanNumberII.java
   * ============================================================================
   */
-package roman;
+package kata.roman;
 
 import java.util.HashMap;
 import java.util.Map;

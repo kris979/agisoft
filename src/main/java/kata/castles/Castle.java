@@ -3,7 +3,7 @@
   * Name      : Castle.java
   * ============================================================================
   */
-package castles;
+package kata.castles;
 
 /**
  * 

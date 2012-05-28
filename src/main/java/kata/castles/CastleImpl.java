@@ -3,7 +3,7 @@
   * Name      : CastleImpl.java
   * ============================================================================
   */
-package castles;
+package kata.castles;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class CastleImpl implements Castle {
     }
 
     /* (non-Javadoc)
-     * @see castles.Castle#connectWith(castles.Castle)
+     * @see kata.castles.Castle#connectWith(kata.castles.Castle)
      */
     @Override
     public Boolean connectWith(Castle c) {
@@ -45,7 +45,7 @@ public class CastleImpl implements Castle {
     }
 
     /* (non-Javadoc)
-     * @see castles.Castle#connnectedWith(castles.Castle)
+     * @see kata.castles.Castle#connnectedWith(kata.castles.Castle)
      */
     @Override
     public Boolean connnectedWith(Castle c2) {
@@ -53,7 +53,7 @@ public class CastleImpl implements Castle {
     }
 
     /* (non-Javadoc)
-     * @see castles.Castle#getNumberOfSoldiersExpectedToDieDuringAttack()
+     * @see kata.castles.Castle#getNumberOfSoldiersExpectedToDieDuringAttack()
      */
     @Override
     public int getNumberOfSoldiersExpectedToDieDuringAttack() {
@@ -61,7 +61,7 @@ public class CastleImpl implements Castle {
     }
 
     /* (non-Javadoc)
-     * @see castles.Castle#getNumberOfSoldiersRequiredToRemainInCastle()
+     * @see kata.castles.Castle#getNumberOfSoldiersRequiredToRemainInCastle()
      */
     @Override
     public int getNumberOfSoldiersRequiredToRemainInCastle() {
@@ -77,7 +77,7 @@ public class CastleImpl implements Castle {
     }
 
     /* (non-Javadoc)
-     * @see castles.Castle#getName()
+     * @see kata.castles.Castle#getName()
      */
     @Override
     public String getName() {
@@ -85,7 +85,7 @@ public class CastleImpl implements Castle {
     }
 
     /* (non-Javadoc)
-     * @see castles.Castle#getNumberOfSoldiersRequiredToCaptureTheCastle()
+     * @see kata.castles.Castle#getNumberOfSoldiersRequiredToCaptureTheCastle()
      */
     @Override
     public int getNumberOfSoldiersRequiredToCaptureTheCastle() {
@@ -93,7 +93,7 @@ public class CastleImpl implements Castle {
     }
 
     /* (non-Javadoc)
-     * @see castles.Castle#capture(int)
+     * @see kata.castles.Castle#capture(int)
      */
     @Override
     public String capture(int soldiers) throws NotEnoughSoldiersException {

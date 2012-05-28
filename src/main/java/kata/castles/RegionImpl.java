@@ -3,7 +3,7 @@
   * Name      : RegionImpl.java
   * ============================================================================
   */
-package castles;
+package kata.castles;
 
 import java.util.List;
 
@@ -16,14 +16,14 @@ public class RegionImpl implements Region {
     private List<Castle> castles;
 
     /**
-     * @param castles
+     * @param kata.castles
      */
     public RegionImpl(List<Castle> castles) {
         this.castles = castles; 
     }
 
     /* (non-Javadoc)
-     * @see castles.Region#getMinimumNumberOfSoldiersRequiredToConquerTheRegion()
+     * @see kata.castles.Region#getMinimumNumberOfSoldiersRequiredToConquerTheRegion()
      */
     @Override
     public int getMinimumNumberOfSoldiersRequiredToConquerTheRegion() {
@@ -36,7 +36,7 @@ public class RegionImpl implements Region {
     }
 
     /* (non-Javadoc)
-     * @see castles.Region#getCapturePlan()
+     * @see kata.castles.Region#getCapturePlan()
      */
     @Override
     public String getCapturePlan() {

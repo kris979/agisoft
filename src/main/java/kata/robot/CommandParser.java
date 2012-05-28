@@ -3,7 +3,7 @@
  * Name      : CommandParser.java
  * ============================================================================
  */
-package robot;
+package kata.robot;
 
 import java.util.ArrayList;
 import java.util.Arrays;

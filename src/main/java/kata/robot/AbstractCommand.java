@@ -3,7 +3,7 @@
   * Name      : AbstractCommand.java
   * ============================================================================
   */
-package robot;
+package kata.robot;
 
 /**
  * 
@@ -25,7 +25,7 @@ public abstract class AbstractCommand implements Command {
     }
 
     /* (non-Javadoc)
-     * @see robot.Command#getSrcBlock()
+     * @see kata.robot.Command#getSrcBlock()
      */
     @Override
     public Integer getSrcBlock() {
@@ -33,7 +33,7 @@ public abstract class AbstractCommand implements Command {
     }
 
     /* (non-Javadoc)
-     * @see robot.Command#getDstBlock()
+     * @see kata.robot.Command#getDstBlock()
      */
     @Override
     public Integer getDstBlock() {
