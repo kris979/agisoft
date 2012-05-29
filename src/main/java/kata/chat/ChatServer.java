@@ -61,9 +61,8 @@ public class ChatServer {
     private void openSocketChannel() {
         try {
             serverSocketChannel = ServerSocketChannel.open();
-            serverSocketChannel.configureBlocking(false);
-            SocketAddress endpoint = new InetSocketAddress("localhost", 666);
-            serverSocketChannel.socket().bind(endpoint);
+            serverSocketChannel.configureBlocking(true);
+            serverSocketChannel.socket().bind(new InetSocketAddress("localhost", 666));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,29 +72,21 @@ public class ChatServer {
      * 
      */
     private void listen() {
-        while (true) {
             try {
-                SocketChannel accept = serverSocketChannel.accept();
-                if (accept != null) {
-                    fc.transferFrom(accept, 0, 1024);
-//                    fc.
-//                    ByteBuffer buf = ByteBuffer.allocate(20);
-//                    buf.clear();
-//                    while(accept.read(buf) >=0 || buf.position() != 0) {
-//                        buf.flip();
-//                        System.out.println(new String(buf.array()));
-//                        buf.compact();
-//                    }
-                } else {
-//                    System.out.print(".");
-                    Thread.sleep(500);
+                while(true) {
+                System.out.println("Accepting connection.");
+                SocketChannel connection = serverSocketChannel.accept();
+//                System.out.println(connection.isConnected());
+//                System.out.println(connection.isConnectionPending());
+//                System.out.println(connection.isOpen());
+                long transfered = fc.transferFrom(connection, 0, 1024*1024*1024);
+                System.out.println("Transfered: " + transfered);
+                System.out.println("Closing connection " + connection.toString());
+                connection.close();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
-        }
     }
 
     /**
