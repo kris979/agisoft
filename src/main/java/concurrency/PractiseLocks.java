@@ -5,69 +5,72 @@
  */
 package concurrency;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 
  *
  */
 public class PractiseLocks {
+    
+    public static class Runner implements Runnable {
 
-    public static void lock(Lock l) throws InterruptedException {
-        boolean tryLock = l.tryLock();
-        if (tryLock) {
+        private CountDownLatch latch;
+        
+        /**
+         * @param latch
+         */
+        private Runner(CountDownLatch latch) {
+            super();
+            this.latch = latch;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Runnable#run()
+         */
+        @Override
+        public void run() {
             try {
-                PractiseLocks practiseLocks = new PractiseLocks();
-                practiseLocks.sleep(5, TimeUnit.SECONDS);
-            } catch (Exception e) {
-                System.out.println(e);
-            } finally {
-                System.out.println("Unlocked");
-                l.unlock();
-            }
-            System.out.println("Done");
-        } else {
-            System.out.println("Lock already taken");
-        }
-    }
-
-    /**
-     * @param i
-     * @param seconds
-     * @throws InterruptedException
-     */
-    private void sleep(int i, TimeUnit seconds) throws InterruptedException {
-        System.out.print("Sleeping");
-        for (int j = 0; j < i; j++) {
-            Thread.sleep(seconds.toMillis(1));
-            System.out.print(".");
-        }
-        System.out.println("");
-    }
-
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        final Lock l = new ReentrantLock();
-        Runnable r = new Runnable() {
-            public void run() {
-                try {
-                    PractiseLocks.lock(l);
+                doSomeWork();
+                latch.countDown(); //decrement counter
+                System.out.println(Thread.currentThread().getName() + "waiting.");
+                latch.await(); //wait for other threads 
                 } catch (InterruptedException e) {
-                    System.out.println(e.toString());
-                    e.printStackTrace();
-                }
-            }
-        };
+                    System.out.println(Thread.currentThread().getName() + "was interrupted.");  //finishing anyway
+                } 
+                System.out.println(Thread.currentThread().getName() + "done.");
+        }
         
-
-        
-        for (int i = 0; i < 2; i++) {
-            Thread t = new Thread(r);
-            t.start();
+        /**
+         * @throws InterruptedException 
+         * 
+         */
+        private void doSomeWork() throws InterruptedException {
+            System.out.println(Thread.currentThread().getName() + " doing some work....");
+            TimeUnit.SECONDS.sleep(1);
         }
     }
+
+
+    public static void main(String[] args) {
+        CountDownLatch latch = new CountDownLatch(5);   //best 3
+        List<Runner> runners = new ArrayList<Runner>();
+        for (int i = 0; i < 20; i++) {
+            Runner runner = new Runner(latch);
+            runners.add(runner);
+        }
+        ExecutorService exec = Executors.newFixedThreadPool(5);
+        for (Runner runner : runners) {
+            exec.execute(runner);
+        }
+        System.out.println(Thread.currentThread().getName() + " finishing...");
+        
+    }
+    
+    
 }
