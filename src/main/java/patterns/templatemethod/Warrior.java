@@ -5,7 +5,7 @@ package patterns.templatemethod;
  * It is not necessary to have the superclass as a abstract class. It can be a concrete class
  * containing a method (template method) and some default functionality. In this case the primitive methods can not be
  * abstract and this is a flaw because it is not so clear which methods have to be overridden and which not. A concrete
- * base class should be used only when customizations hooks are implemented.
+ * base class should be used only when customisations hooks are implemented.
  * 
  * TEMPLATE METHOD CAN NOT BE OVERRIDDEN 
  * The template method implemented by the base class should not be overridden. The
@@ -27,9 +27,9 @@ public abstract class Warrior {
         attack();
     }
 
+    protected abstract void prepare();
+    protected abstract void move();
     protected abstract void attack();
 
-    protected abstract void move();
 
-    protected abstract void prepare();
 }

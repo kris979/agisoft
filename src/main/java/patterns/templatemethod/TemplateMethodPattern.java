@@ -2,9 +2,9 @@ package patterns.templatemethod;
 
 /**
  * A template method defines an algorithm in a base class using abstract operations that subclasses override to provide
- * concrete behavior.
+ * concrete behaviour.
  * 
- * when refactoring is performed and common behavior is identified among classes. A abstract base class containing all
+ * when refactoring is performed and common behaviour is identified among classes. A abstract base class containing all
  * the common code (in the template method) should be created to avoid code duplication.
  * 
  * 
