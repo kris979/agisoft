@@ -16,8 +16,8 @@ public class FactoryPattern {
         try
         {
             Class.forName(BarbarianWarrior.class.getName());
-//            Class.forName(NecromancerWarrior.class.getName());
-//            Class.forName(SorcererWarrior.class.getName());
+            Class.forName(NecromancerWarrior.class.getName());
+            Class.forName(SorcererWarrior.class.getName());
         }
         catch (ClassNotFoundException any)
         {

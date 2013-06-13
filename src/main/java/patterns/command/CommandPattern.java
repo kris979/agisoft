@@ -42,14 +42,13 @@ public class CommandPattern {
         Command c2 = new MoveCommand();
         Command c3 = new AttackCommand();
         Command undo = new UndoCommand();
-        Command c4 = new AttackCommand();
         Command c5 = new MoveCommand();
         commands.add(c0);
         commands.add(c1);
         commands.add(c2);
+        commands.add(c2);
         commands.add(c3);
         commands.add(undo);
-        commands.add(c4);
         commands.add(c5);
     }
 
