@@ -20,6 +20,7 @@
 			<name>guice maven</name>
 			<url>http://guice-maven.googlecode.com/svn/trunk</url>
 		</repository>
+
 	</repositories>
 
 	<build>
@@ -122,5 +123,10 @@
 			<artifactId>guava</artifactId>
 			<version>13.0.1</version>
 		</dependency>
+		      <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+        </dependency>
 	</dependencies>
 </project>
