@@ -3,7 +3,7 @@
   * Name      : Item.java
   * ============================================================================
   */
-package kata.kataIX;
+package kata.parser;
 
 import java.util.List;
 

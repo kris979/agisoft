@@ -3,7 +3,7 @@
   * Name      : SuperMarketCheckout.java
   * ============================================================================
   */
-package kata.kataIX;
+package kata.parser;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

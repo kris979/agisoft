@@ -3,7 +3,7 @@
   * Name      : CheckOut.java
   * ============================================================================
   */
-package kata.kataIX;
+package kata.parser;
 
 /**
  * 

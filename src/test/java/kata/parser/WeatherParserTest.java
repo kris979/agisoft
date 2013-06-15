@@ -3,7 +3,7 @@
   * Name      : WeatherTest.java
   * ============================================================================
   */
-package kata.kataIV;
+package kata.parser;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

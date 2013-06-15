@@ -47,9 +47,7 @@ public class Annotation {
      * below, a deprecated method is used and the compiler would normally generate a warning. In this case, however, the
      * annotation causes the warning to be suppressed.
      */
-    @SuppressWarnings({ "deprecation", "unchecked" })
     public void suppressedWarning() {
-        int x = 0;
         deprecatedMethod();
     }
 

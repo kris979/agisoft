@@ -3,7 +3,7 @@
  * Name      : WordBuilder2.java
  * ============================================================================
  */
-package kata.kataVIII;
+package kata.wordbuilder;
 
 import java.io.BufferedReader;
 import java.io.File;

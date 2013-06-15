@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.is;
 import java.util.ArrayList;
 import java.util.List;
 
-import kata.kataIX.Item;
+import kata.parser.Item;
 
 import org.junit.Test;
 

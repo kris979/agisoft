@@ -12,10 +12,10 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import kata.kataIX.CheckOut;
-import kata.kataIX.Item;
-import kata.kataIX.ItemNotInStockException;
-import kata.kataIX.SuperMarketCheckout;
+import kata.parser.CheckOut;
+import kata.parser.Item;
+import kata.parser.ItemNotInStockException;
+import kata.parser.SuperMarketCheckout;
 
 import org.junit.Before;
 import org.junit.Test;
