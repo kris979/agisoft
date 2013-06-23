@@ -51,28 +51,12 @@
 				</executions>
 			</plugin>
 
-<!-- 
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>emma-maven-plugin</artifactId>
-				<version>1.0-alpha-2</version>
-				<inherited>true</inherited>
-				<configuration>
-					<instrumentationPaths>
-						<directory>${project.build.directory}/classes</directory>
-					</instrumentationPaths>
-					<verbose>true</verbose>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>process-classes</phase>
-						<goals>
-							<goal>instrument</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
- -->
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>emma-maven-plugin</artifactId> 
+				<version>1.0-alpha-2</version> <inherited>true</inherited> <configuration> 
+				<instrumentationPaths> <directory>${project.build.directory}/classes</directory> 
+				</instrumentationPaths> <verbose>true</verbose> </configuration> <executions> 
+				<execution> <phase>process-classes</phase> <goals> <goal>instrument</goal> 
+				</goals> </execution> </executions> </plugin> -->
 
 		</plugins>
 	</build>
@@ -123,10 +107,15 @@
 			<artifactId>guava</artifactId>
 			<version>13.0.1</version>
 		</dependency>
-		      <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>3.0</version>
-        </dependency>
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.thrift</groupId>
+			<artifactId>libthrift</artifactId>
+			<version>0.9.0</version>
+		</dependency>
 	</dependencies>
 </project>

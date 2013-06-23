@@ -12,25 +12,16 @@ import java.util.List;
  * 
  *
  */
-public class Warrior {
+public final class Warrior {
     
-    private String name;
-    private List<String> equipment = new ArrayList<String>();
-
-    /**
-     * @param name2
-     * @param equipment2
-     * @return
-     */
-    public static Warrior Summon(String name2, List<String> equipment2) {
-        return new Warrior(name2, equipment2);
-    }
+    private final String name;
+    private final List<String> equipment = new ArrayList<String>();
 
     /**
      * @param name2
      * @param equipment2
      */
-    public Warrior(String name2, List<String> equipment2) {
+    private Warrior(String name2, List<String> equipment2) {
         this.name = name2;
         this.equipment.addAll(equipment2);
     }
@@ -70,7 +61,7 @@ public class Warrior {
          * @return
          */
         public Warrior summon() {
-            return Warrior.Summon(this.name, this.equipment);
+            return new Warrior(this.name, this.equipment);
         }
 
     }
