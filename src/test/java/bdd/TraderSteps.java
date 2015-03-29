@@ -12,6 +12,8 @@ import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
+import com.agisoft.bdd.Stock;
+
 /**
  * 
  *

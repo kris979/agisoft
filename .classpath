@@ -22,5 +22,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="flow-exceptions-asserts"/>
+	<classpathentry kind="src" path="innerclasses"/>
+	<classpathentry kind="src" path="objectOrientation"/>
+	<classpathentry kind="src" path="assignments-wrappers"/>
+	<classpathentry kind="src" path="gui"/>
+	<classpathentry kind="src" path="access-control-enums"/>
+	<classpathentry kind="src" path="operators"/>
+	<classpathentry kind="src" path="generics"/>
+	<classpathentry kind="src" path="io-formating-parsing"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
