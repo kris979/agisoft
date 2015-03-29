@@ -3,7 +3,7 @@
  * Name      : Annotation.java
  * ============================================================================
  */
-package annotations;
+package com.agisoft.annotations;
 
 /* 
  * Annotations provide data about data.

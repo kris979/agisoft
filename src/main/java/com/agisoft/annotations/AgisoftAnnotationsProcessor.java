@@ -3,7 +3,7 @@
   * Name      : AgisoftAnnotationsProcessor.java
   * ============================================================================
   */
-package annotations;
+package com.agisoft.annotations;
 
 import java.util.Set;
 

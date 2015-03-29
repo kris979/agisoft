@@ -3,7 +3,7 @@
   * Name      : AgisoftClassLoader.java
   * ============================================================================
   */
-package classloading;
+package com.agisoft.classloading;
 
 
 class Kris {
